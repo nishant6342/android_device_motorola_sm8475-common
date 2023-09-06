@@ -96,9 +96,6 @@ PRODUCT_PACKAGES += \
     audio.bluetooth.default \
     audio.r_submix.default \
     audio.usb.default \
-    agmcap \
-    agmcompressplay \
-    agmplay \
     libagm_compress_plugin \
     libagm_mixer_plugin \
     libagm_pcm_plugin \
