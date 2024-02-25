@@ -419,11 +419,6 @@ PRODUCT_COPY_FILES += \
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
-# Protobuf
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/system_ext/lib/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libprotobuf-cpp-full-v33.so \
-    $(LOCAL_PATH)/prebuilts/system_ext/lib64/libprotobuf-cpp-full.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libprotobuf-cpp-full-v33.so
-
 # QMI
 PRODUCT_PACKAGES += \
     libjson \
