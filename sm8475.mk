@@ -407,8 +407,7 @@ PRODUCT_COPY_FILES += \
 
 # Perf
 PRODUCT_PACKAGES += \
-    libqti-perfd-client \
-    libgrpc++_unsecure.vendor
+    libqti-perfd-client
 
 # Power
 $(call inherit-product, hardware/motorola/power-libperfmgr/aidl/device.mk)
