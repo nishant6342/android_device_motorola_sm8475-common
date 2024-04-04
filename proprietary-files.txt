@@ -211,7 +211,6 @@ vendor/lib64/libcneqmiutils.so
 vendor/lib64/libshsc.so
 vendor/lib64/libwms.so
 vendor/lib64/libwqe.so
-vendor/lib64/libqti_vndfwk_detect_vendor.so
 vendor/lib64/libxml.so
 vendor/lib64/vendor.qti.data.factory@2.0.so
 vendor/lib64/vendor.qti.data.factory@2.1.so
@@ -432,7 +431,6 @@ vendor/lib64/liblbs_core.so
 vendor/lib64/libloc_api_v02.so
 vendor/lib64/libloc_api_wds.so
 vendor/lib64/libloc_base_util.so
-vendor/lib64/libloc_core.so
 vendor/lib64/libloc_eng_hub.so
 vendor/lib64/libloc_mq_client.so
 vendor/lib64/libloc_qwes_iface.so
