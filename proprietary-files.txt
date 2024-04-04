@@ -1189,4 +1189,3 @@ vendor/lib64/libwvhidl.so
 # WiFi
 vendor/bin/cnss-daemon
 vendor/etc/init/init.vendor.wlan.rc
-vendor/lib64/libcld80211.so
