@@ -96,13 +96,13 @@ system_ext/lib64/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/hw/com.dsi.ant@1.0-impl.so
 
 # Audio AGM from eqs T1SQ33.15-11-137-10-2
--vendor/lib64/libagm.so|26a57d8cf2edd0bddce4b6bd115b5c0f0889501d
 -vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so|88bdf55a824d60059c033fec3ef9acb9537f8eb1
 
 # Audio libraries
 vendor/lib64/hw/audio.primary.taro.so:vendor/lib64/hw/audio.primary.taro-moto.so;DISABLE_CHECKELF
 vendor/lib64/libadm.so
 vendor/lib64/libadsprpc.so
+-vendor/lib64/libagm.so
 vendor/lib64/libar-acdb.so
 vendor/lib64/libar-gpr.so
 -vendor/lib64/libar-gsl.so
