@@ -5,7 +5,6 @@ vendor/bin/adsprpcd
 vendor/bin/loadalgo
 vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc
 vendor/lib64/libadsp_default_listener.so
-vendor/lib64/libadspd.so
 vendor/lib64/libloadalgo_stub.so
 
 # ADSP modules
@@ -165,8 +164,6 @@ vendor/firmware/CAMERA_ICP_480.elf
 # Camera - Motorola
 vendor/bin/hw/motorola.hardware.camera.desktop@2.0-service
 vendor/etc/init/motorola.hardware.camera.desktop@2.0-service.rc
-vendor/lib/motorola.hardware.camera.desktop@1.0.so
-vendor/lib/motorola.hardware.camera.desktop@2.0.so
 vendor/lib64/motorola.hardware.camera.desktop@1.0.so
 vendor/lib64/motorola.hardware.camera.desktop@2.0.so
 
@@ -263,7 +260,6 @@ vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 # CVP
 vendor/lib64/libcv_common.so
 vendor/lib64/libcvp2_1.so
-vendor/lib64/libcvpcpuRev_skel.so
 
 # Diag
 system_ext/lib64/vendor.qti.diaghal@1.0.so
@@ -664,22 +660,18 @@ vendor/lib64/libdiag.so
 vendor/lib64/libdsi_netctrl.so
 vendor/lib64/libdsutils.so
 vendor/lib64/libidl.so
-vendor/lib64/libqcci_legacy.so
 vendor/lib64/libqcmaputils.so
 vendor/lib64/libqdi.so
 vendor/lib64/libqdp.so
 vendor/lib64/libqdpr.so
-vendor/lib64/libqms_client.so
 vendor/lib64/libqmi.so
 vendor/lib64/libqmi_cci.so
 vendor/lib64/libqmi_client_helper.so
 vendor/lib64/libqmi_client_qmux.so
 vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_csi.so
-vendor/lib64/libqmi_csvt_srvc.so
 vendor/lib64/libqmi_encdec.so
 vendor/lib64/libqmi_legacy.so
-vendor/lib64/libqmiextservices.so
 vendor/lib64/libqmimotext.so
 vendor/lib64/libqmiservices.so
 vendor/lib64/libsubsystem_control.so
@@ -1032,7 +1024,6 @@ vendor/lib64/libsensorcal.so
 vendor/lib64/libsensorslog.so
 vendor/lib64/libsns_device_mode_stub.so
 vendor/lib64/libsns_direct_channel_stub.so
-vendor/lib64/libsns_registry_skel.so
 vendor/lib64/libsnsapi.so
 vendor/lib64/libsnsdiaglog.so
 vendor/lib64/libssc.so
@@ -1135,14 +1126,11 @@ vendor/etc/init/qconfig.rc
 vendor/etc/init/vppservice.rc
 vendor/etc/vintf/manifest/vendor.qti.hardware.qconfig@1.0-service.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.vpp@2.0-service.xml
-vendor/lib64/libqconfigclient.so
-vendor/lib64/libvppclient.so
 vendor/lib64/libvppcommon.so
 vendor/lib64/libvpphcp.so
 vendor/lib64/libvpphvx.so
 vendor/lib64/libvppimmotion.so
 vendor/lib64/libvpplibrary.so
-vendor/lib64/libvpptestutils.so
 vendor/lib64/vendor.qti.hardware.qconfig@1.0.so
 vendor/lib64/vendor.qti.hardware.vpp@1.1.so
 vendor/lib64/vendor.qti.hardware.vpp@1.2.so
