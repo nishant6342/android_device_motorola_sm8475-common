@@ -147,7 +147,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.7.vendor \
     libcamera2ndk_vendor \
+    libexif.vendor \
     libgui_vendor \
+    libutilscallstack.vendor \
+    libyuv.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor \
     vendor.qti.hardware.camera.aon@1.0.vendor
 
@@ -209,10 +212,7 @@ PRODUCT_PACKAGES += \
     libgeofencing \
     libloc_core \
     libgnss \
-    libgnsspps \
-    libsqlite.vendor \
-    libexif.vendor \
-    libyuv.vendor
+    libgnsspps
 
 PRODUCT_PACKAGES += \
     apdr.conf \
@@ -421,11 +421,13 @@ PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
 # QMI
 PRODUCT_PACKAGES += \
+    libcurl.vendor \
     libjson \
     libjsoncpp.vendor \
+    libnetutils.vendor \
     libqti_vndfwk_detect \
     libqti_vndfwk_detect.vendor \
-    libqti_vndfwk_detect_vendor \
+    libsqlite.vendor \
     libvndfwk_detect_jni.qti \
     libvndfwk_detect_jni.qti.vendor
 
@@ -445,7 +447,9 @@ PRODUCT_PACKAGES += \
     android.system.net.netd@1.1.vendor \
     libprotobuf-cpp-full \
     libprotobuf-cpp-full-3.9.1-vendorcompat \
-    librmnetctl
+    libprotobuf-cpp-lite-3.9.1-vendorcompat \
+    librmnetctl \
+    libsysutils.vendor
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -486,8 +490,7 @@ PRODUCT_PACKAGES += \
     qti_telephony_utils.xml \
     qti-telephony-utils-prd \
     qti_telephony_utils_prd.xml \
-    telephony-ext \
-    libsysutils.vendor
+    telephony-ext
 
 PRODUCT_BOOT_JARS += \
     telephony-ext
