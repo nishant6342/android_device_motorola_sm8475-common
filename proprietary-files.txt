@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from 14-U1SQ34M.52-21-1 cfdfb release-keys.
+# All unpinned blobs below are extracted from 14-U1SQS34.52-21-1-7 05c162-3a3ec6 release-keys.
 
 # ADSP
 vendor/bin/adsprpcd
@@ -268,6 +268,7 @@ vendor/bin/qdcmss
 vendor/etc/init/qdcmss.rc
 vendor/etc/snapdragon_color_libs_config.xml
 vendor/lib64/libbacklight-calib.so
+vendor/lib64/libcolor-default.so
 vendor/lib64/libdigital-dimming.so
 vendor/lib64/libdpps.so
 vendor/lib64/libgame_enhance.so
@@ -449,6 +450,7 @@ vendor/lib64/libslimclient.so
 vendor/lib64/libsys_info_cache.so
 vendor/lib64/libxtadapter.so
 vendor/lib64/vendor.qti.gnss-service.so
+vendor/lib64/vendor.qti.gnss-V3-ndk_platform.so
 vendor/lib64/vendor.qti.gnss-V5-ndk_platform.so
 vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 
@@ -648,6 +650,7 @@ vendor/lib64/libqcmaputils.so
 vendor/lib64/libqdi.so
 vendor/lib64/libqdp.so
 vendor/lib64/libqdpr.so
+vendor/lib64/libqms_client.so
 vendor/lib64/libqmi.so
 vendor/lib64/libqmi_cci.so
 vendor/lib64/libqmi_client_helper.so
@@ -759,6 +762,7 @@ vendor/bin/netmgrd
 vendor/bin/pd-mapper
 vendor/bin/port-bridge
 vendor/bin/qmi_motext_hook
+vendor/bin/qms
 vendor/bin/qrtr-cfg
 vendor/bin/qrtr-lookup
 vendor/bin/qrtr-ns
@@ -827,6 +831,13 @@ vendor/etc/qcril_database/upgrade/ecc/44_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/45_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/46_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/3_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/40_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/41_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/42_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/43_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/44_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/45_version_qcrildb.sql
+vendor/etc/qcril_database/upgrade/ecc/46_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/4_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/5_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/6_version_qcrildb.sql
