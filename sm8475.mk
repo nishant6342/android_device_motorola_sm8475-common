@@ -457,7 +457,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     vendor/qcom/opensource/data-ipa-cfg-mgr \
-    hardware/qcom-caf/sm8450/display
+    hardware/qcom-caf/sm8450/display \
+    hardware/qcom-caf/wlan
 
 # Service Tracker
 PRODUCT_PACKAGES += \
