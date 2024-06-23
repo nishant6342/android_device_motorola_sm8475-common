@@ -944,8 +944,6 @@ vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 
 # RIL - IMS - system_ext - eqs T1SQ33
 -system_ext/priv-app/ims/ims.apk|ebb79128d1639c5012b8cdd454220e84f21e416c
-system_ext/lib64/libimscamera_jni.so|f6b7647cfe080baeed006c932b495ff94b5685a7
-system_ext/lib64/libimsmedia_jni.so|5b34af19636863d22e5e7b4f20136564e6ee2222
 
 # RIL - IMS - system_ext
 -system_ext/app/ImsRcsService/ImsRcsService.apk
@@ -983,6 +981,8 @@ system_ext/lib64/lib-imsvt.so
 system_ext/lib64/lib-imsvtextutils.so
 system_ext/lib64/lib-imsvtutils.so
 system_ext/lib64/libdiag_system.so
+system_ext/lib64/libimscamera_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libimscamera_jni.so
+system_ext/lib64/libimsmedia_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
 system_ext/lib64/vendor.qti.ims.callcapabilityaidlservice-V1-ndk.so
