@@ -211,7 +211,8 @@ PRODUCT_PACKAGES += \
     libgnss \
     libgnsspps \
     libsqlite.vendor \
-    libexif.vendor
+    libexif.vendor \
+    libyuv.vendor
 
 PRODUCT_PACKAGES += \
     apdr.conf \
