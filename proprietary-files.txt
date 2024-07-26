@@ -740,7 +740,7 @@ product/framework/uimgbamanagerlibrary.jar
 product/framework/uimservicelibrary.jar
 
 # RIL - system_ext
--system_ext/app/QtiTelephony/QtiTelephony.apk|fe15218a232568fe1999cef82cb9dedc04ebfaba
+-system_ext/app/QtiTelephony/QtiTelephony.apk
 -system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/qti_libpermissions.xml
