@@ -942,8 +942,8 @@ vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_client@1.2.so
 vendor/lib64/vendor.qti.hardware.radio.uim_remote_server@1.0.so
 
-# RIL - IMS - system_ext - eqs T1SQ33
--system_ext/priv-app/ims/ims.apk|ebb79128d1639c5012b8cdd454220e84f21e416c
+# RIL - IMS - system_ext - eqs U1SQS34
+-system_ext/priv-app/ims/ims.apk|38ce142f9b9f75d8a5373479ccdea4ec3b237b57
 
 # RIL - IMS - system_ext
 -system_ext/app/ImsRcsService/ImsRcsService.apk
