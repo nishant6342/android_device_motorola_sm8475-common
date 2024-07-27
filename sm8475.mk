@@ -110,7 +110,6 @@ PRODUCT_PACKAGES += \
     libsndcardparser \
     libtinycompress \
     libaudioroute.vendor \
-    libfmpal \
     vendor.qti.hardware.AGMIPC@1.0-service \
     vendor.qti.hardware.pal@1.0-impl \
     audio.primary.default \
