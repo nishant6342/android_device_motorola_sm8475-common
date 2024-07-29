@@ -333,7 +333,8 @@ PRODUCT_PACKAGES += \
     libcodec2_vndk.vendor \
     libOmxCore \
     libmm-omxcore \
-    libstagefrighthw
+    libstagefrighthw \
+    libstagefright_softomx_plugin.vendor
 
 # Permissions
 PRODUCT_COPY_FILES += \
