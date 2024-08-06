@@ -107,6 +107,9 @@ function blob_fixup() {
         vendor/lib64/sensors.moto.so)
             "${PATCHELF}" --replace-needed "libutils.so" "libutils-v33.so" "${2}"
             ;;
+        system_ext/priv-app/ims/ims.apk)
+            apktool_patch "${2}" "$MY_DIR/ims-patches"
+            ;;
     esac
 }
 
