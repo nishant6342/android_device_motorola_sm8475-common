@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.powershare@1.0-service.eqs"
+#define LOG_TAG "vendor.lineage.powershare@1.0-service.moto_sm8475"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>
