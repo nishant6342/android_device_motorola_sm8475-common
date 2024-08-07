@@ -422,6 +422,10 @@ PRODUCT_COPY_FILES += \
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
+# PowerShare
+PRODUCT_PACKAGES += \
+    vendor.lineage.powershare@1.0-service.moto_sm8475
+
 # QMI
 PRODUCT_PACKAGES += \
     libcurl.vendor \
