@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.powershare@1.0-service.eqs"
-
 #include "PowerShare.h"
 
 #include <android-base/file.h>
