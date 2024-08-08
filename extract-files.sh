@@ -98,16 +98,16 @@ function blob_fixup() {
             ;;
         # rename moto modified primary audio to not conflict with source built
         vendor/lib64/hw/audio.primary.taro-moto.so)
-            "${PATCHELF}" --set-soname audio.primary.taro-moto.so "${2}"
+            ${PATCHELF} --set-soname audio.primary.taro-moto.so "${2}"
             ;;
         vendor/lib64/vendor.qti.gnss-service.so)
-            "${PATCHELF}" --replace-needed "android.hardware.gnss-V1-ndk_platform.so" "android.hardware.gnss-V1-ndk.so" "${2}"
+            ${PATCHELF} --replace-needed "android.hardware.gnss-V1-ndk_platform.so" "android.hardware.gnss-V1-ndk.so" "${2}"
             ;;
         vendor/lib64/libdlbdsservice.so | vendor/lib64/soundfx/libswdap.so)
-            "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
+            ${PATCHELF} --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
             ;;
         vendor/lib64/sensors.moto.so)
-            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v33.so" "${2}"
+            ${PATCHELF} --replace-needed "libutils.so" "libutils-v33.so" "${2}"
             ;;
         system_ext/priv-app/ims/ims.apk)
             apktool_patch "${2}" "$MY_DIR/ims-patches"
