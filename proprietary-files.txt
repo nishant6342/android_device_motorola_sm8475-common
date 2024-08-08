@@ -1186,6 +1186,14 @@ vendor/lib64/vendor.qti.hardware.vibrator.impl.so
 #vendor/lib64/hw/motorola.hardware.vibrator@1.0-impl.so
 #vendor/lib64/motorola.hardware.vibrator@1.0.so
 
+# Venus firmware
+vendor/firmware/venus_4mb.mbn
+vendor/firmware/venus_4mb_unsigned.mbn
+vendor/firmware/venus_4mb_v6.mbn
+vendor/firmware/venus_4mb_v7.mbn
+vendor/firmware/venus_v6.mbn
+vendor/firmware/venus_v7.mbn
+
 # VPP
 vendor/bin/hw/qconfigservice
 vendor/bin/vppservice
