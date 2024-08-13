@@ -293,6 +293,10 @@ PRODUCT_PACKAGES += \
     android.hardware.security.rkp-V1-ndk.vendor \
     android.hardware.security.keymint-V1-ndk.vendor
 
+# Lineage Health
+PRODUCT_PACKAGES += \
+    vendor.lineage.health-service.default
+
 # LiveDisplay
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay@2.1-service.motorola_taro
