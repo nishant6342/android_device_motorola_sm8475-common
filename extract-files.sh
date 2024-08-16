@@ -84,9 +84,6 @@ function blob_fixup() {
             ${PATCHELF} --replace-needed "android.hardware.security.secureclock-V1-ndk_platform.so" "android.hardware.security.secureclock-V1-ndk.so" "${2}"
             ${PATCHELF} --replace-needed "android.hardware.security.sharedsecret-V1-ndk_platform.so" "android.hardware.security.sharedsecret-V1-ndk.so" "${2}"
             ;;
-        vendor/lib64/vendor.qti.hardware.qxr-V1-ndk_platform.so)
-            ${PATCHELF} --replace-needed "android.hardware.common-V2-ndk_platform.so" "android.hardware.common-V2-ndk.so" "${2}"
-            ;;
         vendor/lib64/nfc_nci.nqx.default.hw.so)
             ${PATCHELF} --replace-needed "libbase.so" "libbase-v33.so" "${2}"
             ;;
