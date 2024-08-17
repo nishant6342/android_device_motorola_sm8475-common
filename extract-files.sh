@@ -92,6 +92,9 @@ function blob_fixup() {
         vendor/bin/qcc-trd)
             ${PATCHELF} --replace-needed "libgrpc++_unsecure.so" "libgrpc++_unsecure_prebuilt.so" "${2}"
             ;;
+        vendor/lib64/libcodec2_soft_ac4dec.so | vendor/lib64/libcodec2_soft_ddpdec.so)
+            ${PATCHELF} --replace-needed "libcodec2_soft_common.so" "libcodec2_soft_common_prebuilt.so" "${2}"
+            ;;
         vendor/lib64/libancbase_rt_fusion.so)
             ${PATCHELF} --set-soname libancbase_rt_fusion.so "${2}"
             ;;
@@ -103,6 +106,9 @@ function blob_fixup() {
             ;;
         vendor/lib64/libgrpc++_unsecure_prebuilt.so)
             ${PATCHELF} --set-soname libgrpc++_unsecure_prebuilt.so "${2}"
+            ;;
+        vendor/lib64/libcodec2_soft_common_prebuilt.so)
+            ${PATCHELF} --set-soname libcodec2_soft_common_prebuilt.so "${2}"
             ;;
         # rename moto modified primary audio to not conflict with source built
         vendor/lib64/hw/audio.primary.taro-moto.so)
