@@ -93,10 +93,6 @@ vendor/lib/rfsa/adsp/libvpp_vqa_networks.so
 vendor/lib/rfsa/adsp/libvpt_action_recognition.so
 vendor/lib/rfsa/adsp/libworker_pool.so
 
-# ANT+
-system_ext/lib64/com.qualcomm.qti.ant@1.0.so
-vendor/lib64/hw/com.dsi.ant@1.0-impl.so
-
 # Audio libraries
 # audio.primary.taro.so depends on vendor.qti.hardware.pal@1.0-impl, which is a gnu makefile target
 vendor/lib64/hw/audio.primary.taro.so:vendor/lib64/hw/audio.primary.taro-moto.so;DISABLE_CHECKELF
