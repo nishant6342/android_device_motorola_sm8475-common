@@ -45,10 +45,6 @@
 # Devicetree
 /sys/firmware/devicetree/base/chosen(/.*)?              u:object_r:sysfs_dt_chosen:s0
 
-# Dolby DMS
-/(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service       u:object_r:hal_dms_default_exec:s0
-/data/vendor/dolby(/.*)?                                                u:object_r:vendor_audio_data_file:s0
-
 # Fingerprint
 /(mnt/vendor/persist|persist)/egis(/.*)?                u:object_r:vendor_persist_egis_file:s0
 /(mnt/vendor/persist|persist)/mdm(/.*)?                 u:object_r:persist_modem_file:s0
@@ -61,9 +57,6 @@
 
 # Label discard_max_bytes in /data partition
 /sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/queue/discard_max_bytes u:object_r:vendor_sysfs_scsi_host:s0
-
-# Media
-/(vendor|system/vendor)/bin/hw/vendor\.dolby\.media\.c2@1\.0-service            u:object_r:mediacodec_exec:s0
 
 # Motobox
 /(vendor|system/vendor)/bin/motobox                     u:object_r:vendor_motobox_exec:s0

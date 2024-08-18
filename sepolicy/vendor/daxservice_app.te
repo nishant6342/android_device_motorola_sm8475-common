@@ -1,3 +1,0 @@
-allow daxservice_app hal_dms_hwservice:hwservice_manager find;
-binder_call(daxservice_app, hal_dms_default)
-get_prop(daxservice_app, vendor_audio_prop)
