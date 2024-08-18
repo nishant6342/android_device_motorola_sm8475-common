@@ -93,9 +93,6 @@ function blob_fixup() {
         vendor/bin/qcc-trd)
             ${PATCHELF} --replace-needed "libgrpc++_unsecure.so" "libgrpc++_unsecure_prebuilt.so" "${2}"
             ;;
-        vendor/lib64/libcodec2_soft_ac4dec.so | vendor/lib64/libcodec2_soft_ddpdec.so)
-            ${PATCHELF} --replace-needed "libcodec2_soft_common.so" "libcodec2_soft_common_prebuilt.so" "${2}"
-            ;;
         vendor/lib64/libmotext_inf.so)
             ${PATCHELF} --remove-needed "libril.so" "${2}"
             ;;
@@ -111,18 +108,12 @@ function blob_fixup() {
         vendor/lib64/libgrpc++_unsecure_prebuilt.so)
             ${PATCHELF} --set-soname libgrpc++_unsecure_prebuilt.so "${2}"
             ;;
-        vendor/lib64/libcodec2_soft_common_prebuilt.so)
-            ${PATCHELF} --set-soname libcodec2_soft_common_prebuilt.so "${2}"
-            ;;
         # rename moto modified primary audio to not conflict with source built
         vendor/lib64/hw/audio.primary.taro-moto.so)
             ${PATCHELF} --set-soname audio.primary.taro-moto.so "${2}"
             ;;
         vendor/lib64/vendor.qti.gnss-service.so)
             ${PATCHELF} --replace-needed "android.hardware.gnss-V1-ndk_platform.so" "android.hardware.gnss-V1-ndk.so" "${2}"
-            ;;
-        vendor/lib64/libdlbdsservice.so | vendor/lib64/soundfx/libswdap.so)
-            ${PATCHELF} --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
             ;;
         system_ext/priv-app/ims/ims.apk)
             apktool_patch "${2}" "$MY_DIR/ims-patches"
