@@ -318,15 +318,6 @@ PRODUCT_PACKAGES += \
     MotoActions \
     MotoCommonOverlay
 
-# OMX
-PRODUCT_PACKAGES += \
-    libcodec2_hidl@1.2.vendor \
-    libcodec2_vndk.vendor \
-    libOmxCore \
-    libmm-omxcore \
-    libstagefrighthw \
-    libstagefright_softomx_plugin.vendor
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
