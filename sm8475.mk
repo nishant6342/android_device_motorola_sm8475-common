@@ -397,7 +397,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI
 
 # PowerShare
 PRODUCT_PACKAGES += \
-    vendor.lineage.powershare@1.0-service.moto_sm8475
+    vendor.lineage.powershare@1.0-service.default
 
 # QMI
 PRODUCT_PACKAGES += \
