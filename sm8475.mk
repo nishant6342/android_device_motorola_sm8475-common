@@ -531,13 +531,7 @@ PRODUCT_PACKAGES += \
     vndservicemanager
 
 # Vibrator
-$(call soong_config_set, vibrator, vibratortargets, vibratoraidlV2target)
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator-V2-ndk_platform.vendor
-
-PRODUCT_COPY_FILES += \
-    vendor/qcom/opensource/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml \
-    $(LOCAL_PATH)/configs/aac_richtap.config:$(TARGET_COPY_OUT_ODM)/etc/aac_richtap.config
+$(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.mk)
 
 # VNDK
 PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
