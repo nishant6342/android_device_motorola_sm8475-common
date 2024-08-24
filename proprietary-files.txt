@@ -664,6 +664,18 @@ vendor/lib64/libqmimotext.so
 vendor/lib64/libqmiservices.so
 vendor/lib64/libsubsystem_control.so
 
+# QSPM
+system_ext/bin/qspmsvc
+system_ext/etc/init/qspmsvc.rc
+system_ext/lib64/libqspmsvc.so
+system_ext/lib64/vendor.qti.qspmhal@1.0.so
+system_ext/lib64/vendor.qti.qspmhal-V1-ndk.so
+vendor/bin/vendor.qti.qspmhal@1.0-service
+vendor/etc/init/vendor.qti.qspmhal@1.0-service.rc
+vendor/etc/seccomp_policy/qspm.policy
+vendor/lib64/vendor.qti.qspmhal@1.0-impl.so
+vendor/lib64/vendor.qti.qspmhal@1.0.so;MODULE=vendor.qti.qspmhal@1.0-vendor
+
 # RIL - UIM
 -product/app/uimgbaservice/uimgbaservice.apk
 product/etc/permissions/UimGba.xml
