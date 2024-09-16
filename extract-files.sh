@@ -71,6 +71,12 @@ function blob_fixup() {
         vendor/etc/media_cape/video_system_specs.json)
             sed -i "/max_retry_alloc_output_timeout/ s/2000/0/" "${2}"
             ;;
+        vendor/etc/seccomp_policy/qcrilnr@2.0.policy)
+            sed -i "0,/eventfd2/{/eventfd2/d;}" "${2}"
+            sed -i "0,/epoll_pwait/{/epoll_pwait/d;}" "${2}"
+            sed -i "/send: 1$/d" "${2}"
+            sed -i "/recv: 1$/d" "${2}"
+            ;;
         vendor/lib64/libcamximageformatutils.so)
             ${PATCHELF} --replace-needed "vendor.qti.hardware.display.config-V2-ndk_platform.so" "vendor.qti.hardware.display.config-V2-ndk.so" "${2}"
             ;;
