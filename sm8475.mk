@@ -87,6 +87,7 @@ PRODUCT_PACKAGES += \
     audioadsprpcd \
     audio.bluetooth.default \
     audio.r_submix.default \
+    audio.primary.taro \
     audio.usb.default \
     libagm_compress_plugin \
     libagm_mixer_plugin \
@@ -96,13 +97,9 @@ PRODUCT_PACKAGES += \
     libqcomvoiceprocessing \
     libsndcardparser \
     libtinycompress \
-    libaudioroute.vendor \
-    vendor.qti.hardware.AGMIPC@1.0-service \
-    vendor.qti.hardware.pal@1.0-impl \
-    audio.primary.default \
     libfmpal \
-    libhfp_pal \
-    libbatterylistener
+    vendor.qti.hardware.AGMIPC@1.0-service \
+    vendor.qti.hardware.pal@1.0-impl
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration_7_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration_7_0.xml \
