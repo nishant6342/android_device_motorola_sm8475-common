@@ -336,10 +336,7 @@ PRODUCT_COPY_FILES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH) \
-    vendor/qcom/opensource/data-ipa-cfg-mgr \
-    hardware/qcom-caf/sm8450/display \
-    hardware/qcom-caf/wlan
+    $(LOCAL_PATH)
 
 # Telephony
 PRODUCT_PACKAGES += \
