@@ -1,0 +1,148 @@
+#!/bin/bash
+#
+# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017-2023 The LineageOS Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+set -e
+
+# Load extract_utils and do some sanity checks
+MY_DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
+
+ANDROID_ROOT="${MY_DIR}/../../.."
+export TARGET_ENABLE_CHECKELF="true"
+
+HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
+if [ ! -f "${HELPER}" ]; then
+    echo "Unable to find helper script at ${HELPER}"
+    exit 1
+fi
+source "${HELPER}"
+
+# Default to sanitizing the vendor folder before extraction
+CLEAN_VENDOR=true
+
+ONLY_COMMON=
+ONLY_FIRMWARE=
+ONLY_TARGET=
+KANG=
+SECTION=
+
+while [ "${#}" -gt 0 ]; do
+    case "${1}" in
+        --only-common )
+                ONLY_COMMON=true
+                ;;
+        --only-firmware )
+                ONLY_FIRMWARE=true
+                ;;
+        --only-target )
+                ONLY_TARGET=true
+                ;;
+        -n | --no-cleanup )
+                CLEAN_VENDOR=false
+                ;;
+        -k | --kang )
+                KANG="--kang"
+                ;;
+        -s | --section )
+                SECTION="${2}"; shift
+                CLEAN_VENDOR=false
+                ;;
+        * )
+                SRC="${1}"
+                ;;
+    esac
+    shift
+done
+
+if [ -z "${SRC}" ]; then
+    SRC="adb"
+fi
+
+function blob_fixup() {
+    case "${1}" in
+        system_ext/etc/permissions/moto-telephony.xml)
+            sed -i "s#/system/#/system_ext/#" "${2}"
+            ;;
+        vendor/etc/media_cape/video_system_specs.json)
+            sed -i "/max_retry_alloc_output_timeout/ s/2000/0/" "${2}"
+            ;;
+        vendor/etc/seccomp_policy/qcrilnr@2.0.policy)
+            sed -i "0,/eventfd2/{/eventfd2/d;}" "${2}"
+            sed -i "0,/epoll_pwait/{/epoll_pwait/d;}" "${2}"
+            sed -i "/send: 1$/d" "${2}"
+            sed -i "/recv: 1$/d" "${2}"
+            ;;
+        vendor/lib64/libcamximageformatutils.so)
+            ${PATCHELF} --replace-needed "vendor.qti.hardware.display.config-V2-ndk_platform.so" "vendor.qti.hardware.display.config-V2-ndk.so" "${2}"
+            ;;
+        vendor/bin/hw/android.hardware.security.keymint-service-qti | \
+        vendor/lib64/libqtikeymint.so)
+            ${PATCHELF} --replace-needed "android.hardware.security.keymint-V1-ndk_platform.so" "android.hardware.security.keymint-V1-ndk.so" "${2}"
+            ${PATCHELF} --replace-needed "android.hardware.security.secureclock-V1-ndk_platform.so" "android.hardware.security.secureclock-V1-ndk.so" "${2}"
+            ${PATCHELF} --replace-needed "android.hardware.security.sharedsecret-V1-ndk_platform.so" "android.hardware.security.sharedsecret-V1-ndk.so" "${2}"
+            grep -q "android.hardware.security.rkp-V1-ndk.so" "${2}" || ${PATCHELF} --add-needed "android.hardware.security.rkp-V1-ndk.so" "${2}"
+            ;;
+        vendor/lib64/nfc_nci.nqx.default.hw.so)
+            ${PATCHELF} --replace-needed "libbase.so" "libbase-v33.so" "${2}"
+            ;;
+        vendor/bin/qcc-trd)
+            ${PATCHELF} --replace-needed "libgrpc++_unsecure.so" "libgrpc++_unsecure_prebuilt.so" "${2}"
+            ;;
+        vendor/lib64/libmotext_inf.so)
+            ${PATCHELF} --remove-needed "libril.so" "${2}"
+            ;;
+        vendor/lib64/vendor.qti.gnss-service.so)
+            ${PATCHELF} --replace-needed "android.hardware.gnss-V1-ndk_platform.so" "android.hardware.gnss-V1-ndk.so" "${2}"
+            ;;
+        system_ext/priv-app/ims/ims.apk)
+            apktool_patch "${2}" "$MY_DIR/ims-patches"
+            ;;
+    esac
+}
+
+function prepare_firmware() {
+    if [ "${SRC}" != "adb" ]; then
+        local STAR="${ANDROID_ROOT}"/lineage/scripts/motorola/star.sh
+        for IMAGE in bootloader radio; do
+            if [ -f "${SRC}/${IMAGE}.img" ]; then
+                echo "Extracting Motorola star image ${SRC}/${IMAGE}.img"
+                sh "${STAR}" "${SRC}/${IMAGE}.img" "${SRC}"
+            fi
+        done
+        local INFO="${ANDROID_ROOT}"/lineage/scripts/motorola/info.sh
+        ./${INFO} "${SRC}"
+    fi
+}
+
+if [ -z "${ONLY_FIRMWARE}" ] && [ -z "${ONLY_TARGET}" ]; then
+    # Initialize the helper for common device
+    setup_vendor "${DEVICE_COMMON}" "${VENDOR_COMMON:-$VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
+
+    extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+fi
+
+if [ -z "${ONLY_COMMON}" ] && [ -s "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files.txt" ]; then
+    # Reinitialize the helper for device
+    source "${MY_DIR}/../../${VENDOR}/${DEVICE}/extract-files.sh"
+    setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
+
+    if [ -z "${ONLY_FIRMWARE}" ]; then
+        extract "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    fi
+
+    if [ -a "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files-carriersettings.txt" ]; then
+        extract "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files-carriersettings.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+        extract_carriersettings
+    fi
+
+    if [ -z "${SECTION}" ] && [ -f "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-firmware.txt" ]; then
+        extract_firmware "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-firmware.txt" "${SRC}"
+    fi
+fi
+
+"${MY_DIR}/setup-makefiles.sh"
