@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from 14-U1SQS34.52-21-1-10 504bf release-keys.
+# All unpinned blobs below are extracted from 14-U1SQS34.52-21-1-13 1b02e release-keys.
 
 # ADSP
 vendor/bin/adsprpcd
@@ -88,13 +88,15 @@ vendor/lib/rfsa/adsp/libvpp_vqa_networks.so
 vendor/lib/rfsa/adsp/libvpt_action_recognition.so
 vendor/lib/rfsa/adsp/libworker_pool.so
 
+# Audio AGM
+vendor/lib64/libagm.so
+vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
+
 # Audio libraries
 # audio.primary.taro.so depends on vendor.qti.hardware.pal@1.0-impl, which is a gnu makefile target
 vendor/lib64/hw/audio.primary.taro.so:vendor/lib64/hw/audio.primary.taro-moto.so;DISABLE_CHECKELF;FIX_SONAME
 vendor/lib64/libadm.so
 vendor/lib64/libadsprpc.so
-vendor/lib64/libagm.so
-vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
 vendor/lib64/libar-acdb.so
 vendor/lib64/libar-gpr.so
 vendor/lib64/libar-gsl.so
@@ -293,7 +295,6 @@ vendor/etc/display/DPU8__.xml
 vendor/etc/display/DPU9__.xml
 vendor/etc/display/advanced_sf_offsets.xml
 vendor/etc/display/thermallevel_to_fps.xml
-vendor/lib64/libcolor-default.so
 vendor/lib64/libdisplayqos.so
 vendor/lib64/libdisplayskuutils.so
 vendor/lib64/libmemutils.so
@@ -712,6 +713,7 @@ system/etc/sysconfig/qti_whitelist.xml
 system_ext/etc/sysconfig/qti_telephony_system_packages_config.xml
 system_ext/etc/sysconfig/qti_whitelist_system_ext.xml
 vendor/bin/irsc_util
+vendor/bin/qcom-system-daemon
 vendor/bin/qmipriod
 vendor/etc/init/qmipriod.rc
 vendor/etc/seccomp_policy/qti-systemd.policy
@@ -843,13 +845,6 @@ vendor/etc/qcril_database/upgrade/ecc/36_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/37_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/38_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/39_version_qcrildb.sql
-vendor/etc/qcril_database/upgrade/ecc/40_version_qcrildb.sql
-vendor/etc/qcril_database/upgrade/ecc/41_version_qcrildb.sql
-vendor/etc/qcril_database/upgrade/ecc/42_version_qcrildb.sql
-vendor/etc/qcril_database/upgrade/ecc/43_version_qcrildb.sql
-vendor/etc/qcril_database/upgrade/ecc/44_version_qcrildb.sql
-vendor/etc/qcril_database/upgrade/ecc/45_version_qcrildb.sql
-vendor/etc/qcril_database/upgrade/ecc/46_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/3_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/40_version_qcrildb.sql
 vendor/etc/qcril_database/upgrade/ecc/41_version_qcrildb.sql
@@ -973,27 +968,13 @@ system/framework/moto-telephony.jar:system_ext/framework/moto-telephony.jar
 # RIL - IMS - system_ext
 system_ext/priv-app/ims/ims.apk
 system_ext/app/ImsRcsService/ImsRcsService.apk
-system_ext/etc/permissions/vendor.qti.ims.rcsconfig-java.xml
 system_ext/etc/permissions/vendor.qti.ims.rcsservice.xml
-system_ext/framework/vendor.qti.ims.callcapability-V1.0-java.jar
-system_ext/framework/vendor.qti.ims.callcapabilityaidlservice-V1-java.jar
-system_ext/framework/vendor.qti.ims.callinfo-V1.0-java.jar
-system_ext/framework/vendor.qti.ims.configaidlservice-V1-java.jar
-system_ext/framework/vendor.qti.ims.configservice-V1.0-java.jar
-system_ext/framework/vendor.qti.ims.configservice-V1.1-java.jar
 system_ext/framework/vendor.qti.ims.connection-V1.0-java.jar
 system_ext/framework/vendor.qti.ims.connectionaidlservice-V1-java.jar
-system_ext/framework/vendor.qti.ims.datachannelservice-V1-java.jar
-system_ext/framework/vendor.qti.ims.factory-V1.0-java.jar
-system_ext/framework/vendor.qti.ims.factory-V1.1-java.jar
 system_ext/framework/vendor.qti.ims.factory-V2.0-java.jar
 system_ext/framework/vendor.qti.ims.factory-V2.1-java.jar
 system_ext/framework/vendor.qti.ims.factory-V2.2-java.jar
 system_ext/framework/vendor.qti.ims.factoryaidlservice-V1-java.jar
-system_ext/framework/vendor.qti.ims.rcsconfig-V1.0-java.jar
-system_ext/framework/vendor.qti.ims.rcsconfig-V1.1-java.jar
-system_ext/framework/vendor.qti.ims.rcsconfig-V2.0-java.jar
-system_ext/framework/vendor.qti.ims.rcsconfig-V2.1-java.jar
 system_ext/framework/vendor.qti.ims.rcssip-V1.0-java.jar
 system_ext/framework/vendor.qti.ims.rcssip-V1.1-java.jar
 system_ext/framework/vendor.qti.ims.rcssip-V1.2-java.jar
@@ -1011,13 +992,6 @@ system_ext/lib64/libimscamera_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/l
 system_ext/lib64/libimsmedia_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
-system_ext/lib64/vendor.qti.ims.callcapabilityaidlservice-V1-ndk.so
-system_ext/lib64/vendor.qti.ims.configaidlservice-V1-ndk.so
-system_ext/lib64/vendor.qti.ims.connectionaidlservice-V1-ndk.so
-system_ext/lib64/vendor.qti.ims.datachannelservice-V1-ndk.so
-system_ext/lib64/vendor.qti.ims.factoryaidlservice-V1-ndk.so
-system_ext/lib64/vendor.qti.ims.rcssipaidlservice-V1-ndk.so
-system_ext/lib64/vendor.qti.ims.rcsuceaidlservice-V1-ndk.so
 system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
 
 # RIL - IMS
@@ -1046,7 +1020,6 @@ vendor/lib64/lib-rtpcommon.so
 vendor/lib64/lib-rtpcore.so
 vendor/lib64/lib-rtpsl.so
 vendor/lib64/librcc.so
-vendor/lib64/libjnihelper.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.0.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.1.so
 vendor/lib64/vendor.qti.hardware.radio.ims@1.2.so
@@ -1136,7 +1109,6 @@ vendor/etc/init/init.vendor.qti.spu@1.1-service.rc
 vendor/lib64/vendor.qti.spu@1.0.so
 vendor/lib64/vendor.qti.spu@1.1.so
 vendor/lib64/vendor.qti.spu@2.0.so
-vendor/lib64/libqti-utils.so
 
 # Thermal engine
 vendor/bin/thermal-engine-v2
