@@ -141,7 +141,7 @@ persist.vendor.bt.aac_vbr_frm_ctl.enabled=true
 persist.vendor.btstack.aac_frm_ctl.enabled=true
 persist.vendor.btstack.qhs_enable=true
 persist.vendor.qcom.bluetooth.a2dp_mcast_test.enabled=false
-persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aac-aptx-aptxhd-ldac
+persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptiver2
 persist.vendor.qcom.bluetooth.aac_frm_ctl.enabled=true
 persist.vendor.qcom.bluetooth.aac_vbr_ctl.enabled=true
 persist.vendor.qcom.bluetooth.aptxadaptiver2_1_support=true
@@ -186,7 +186,6 @@ vendor.display.enable_display_extensions=1
 vendor.display.enable_dpps_dynamic_fps=1
 vendor.display.enable_early_wakeup=1
 vendor.display.enable_hdr10_gpu_target=1
-vendor.display.enable_display_extensions=1
 vendor.display.enable_optimize_refresh=0
 vendor.display.enable_rc_support=1
 vendor.display.enable_rounded_corner=0
@@ -214,20 +213,15 @@ debug.egl.hw=0
 debug.sf.disable_client_composition_cache=1
 debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.enable_gl_backpressure=1
-debug.sf.use_phase_offsets_as_durations=1
-debug.sf.late.app.duration=13666666
-debug.sf.early.app.duration=13666666
-debug.sf.earlyGl.app.duration=13666666
-debug.sf.early.sf.duration=15666666
-debug.sf.earlyGl.sf.duration=15666666
-debug.sf.late.sf.duration=15666666
+debug.sf.high_fps_early_gl_phase_offset_ns=-2000000
+debug.sf.high_fps_early_phase_offset_ns=-4000000
+debug.sf.high_fps_late_app_phase_offset_ns=1000000
+debug.sf.high_fps_late_sf_phase_offset_ns=-2000000
 debug.sf.hw=0
 debug.sf.latch_unsignaled=1
-debug.mdpcomp.logs=0
 debug.sf.scroll_boost_refreshrate=120
 debug.sf.touch_boost_refreshrate=90
 graphics.gpu.profiler.support=true
-debug.renderengine.backend=skiaglthreaded
 persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
 persist.sys.sf.force_brightness_capability=1
@@ -251,12 +245,8 @@ debug.c2.use_dmabufheaps=1
 debug.stagefright.c2inputsurface=-1
 vendor.media.omx=0
 
-# Memory
-persist.device_config.mglru_native.lru_gen_config=all
-
 # NFC
 ro.nfc.port=I2C
-persist.vendor.nfc.polling_timeout=1440
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
@@ -271,6 +261,9 @@ vendor.qc2audio.suspend.enabled=true
 
 # QSPM
 ro.vendor.qspm.enable=true
+
+# Qualcomm System Daemon
+persist.vendor.qcomsysd.enabled=1
 
 # Radio
 persist.vendor.data.mode=concurrent
@@ -307,9 +300,6 @@ persist.vendor.rcs.presence.provision=0
 persist.radio.multisim.config=dsds
 ro.vendor.use_data_netmgrd=true
 
-# Sensors
-ro.vendor.sensors.front_light_compensate=true
-
 # Shutdown
 sys.vendor.shutdown.waittime=500
 
@@ -340,14 +330,7 @@ ro.surface_flinger.use_content_detection_for_refresh_rate=true
 ro.surface_flinger.use_smart_90_for_video=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 
-# Sensors
-persist.vendor.sensors.debug.hal=0
-
-# Update engine
-ro.virtual_ab.compression.threads=true
-
 # USB
-ro.usb.uvc.enabled=1
 sys.usb.mtp.batchcancel=1
 sys.usb.mtp.device_type=3
 vendor.usb.diag.func.name=ffs
