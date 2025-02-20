@@ -18,16 +18,16 @@
 
 #include "BiometricsFingerprint.h"
 
+#include <android-base/file.h>
 #include <android-base/logging.h>
-#include <sys/ioctl.h>
 #include <fcntl.h>
 
 #include <thread>
 
-#include <display/drm/sde_drm.h>
-
 #define NOTIFY_FINGER_UP IMotFodEventType::FINGER_UP
 #define NOTIFY_FINGER_DOWN IMotFodEventType::FINGER_DOWN
+
+#define FOD_HBM_PATH "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/fod_hbm"
 
 namespace android {
 namespace hardware {
@@ -36,20 +36,8 @@ namespace fingerprint {
 namespace V2_3 {
 namespace implementation {
 
-void setFodHbm(int cardFd, bool status) {
-    struct drm_msm_display_fod_hbm display_fod_hbm;
-    int ret;
-
-    if (cardFd < 0) {
-        LOG(ERROR) << "Failed to open graphics card device " << 1;
-        return;
-    }
-
-    display_fod_hbm.status = status;
-
-    ret = ioctl(cardFd, DRM_IOCTL_MSM_DISPLAY_FOD_HBM, &display_fod_hbm);
-    if (ret)
-        LOG(ERROR) << "Failed to send FOD HBM ioctl " << 1;
+void setFodHbm(bool status) {
+    android::base::WriteStringToFile(status ? "1" : "0", FOD_HBM_PATH);
 }
 
 void BiometricsFingerprint::disableHighBrightFod() {
@@ -60,7 +48,7 @@ void BiometricsFingerprint::disableHighBrightFod() {
 
     mMotoFingerprint->sendFodEvent(NOTIFY_FINGER_UP, {},
                                    [](IMotFodEventResult, const hidl_vec<signed char> &) {});
-    setFodHbm(cardFd, false);
+    setFodHbm(false);
 
     hbmFodEnabled = false;
 }
@@ -71,7 +59,7 @@ void BiometricsFingerprint::enableHighBrightFod() {
     if (hbmFodEnabled)
         return;
 
-    setFodHbm(cardFd, true);
+    setFodHbm(true);
     mMotoFingerprint->sendFodEvent(NOTIFY_FINGER_DOWN, {},
                                    [](IMotFodEventResult, const hidl_vec<signed char> &) {});
 
@@ -83,10 +71,6 @@ BiometricsFingerprint::BiometricsFingerprint() {
     mMotoFingerprint = IMotoFingerPrint::getService();
 
     hbmFodEnabled = false;
-    cardFd = open("/dev/dri/card0", O_RDWR);
-    if (cardFd < 0) {
-        LOG(ERROR) << "Failed to open graphics card device " << 1;
-    }
 }
 
 Return<uint64_t> BiometricsFingerprint::setNotify(
